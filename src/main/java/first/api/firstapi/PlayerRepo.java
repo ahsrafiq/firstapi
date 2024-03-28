@@ -19,6 +19,6 @@ public class PlayerRepo implements IRepository<Player>{
 
     @Override
     public Collection<Player> getAll(){
-        throw new UnsupportedOperationException("Umimplemented Method getAll");
+        return data.values();
     }
 }
