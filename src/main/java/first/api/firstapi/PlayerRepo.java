@@ -28,7 +28,33 @@ public class PlayerRepo implements IRepository<Player>{
     }
 
     @Override
-    public void deletePlayer(Integer id){
-        data.values().removeIf(t -> t.getId().equals(id));
+    public boolean updatePlayer(Integer id, Player p){
+
+        Player player = data.get(id);
+
+        if (player != null) {
+            player.setName(p.getName());
+            player.setCountry(p.getCountry());
+            player.setAvg(p.getAvg());
+            player.setWickets(p.getWickets());
+            player.setRuns(p.getRuns());
+
+            return true;
+            
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deletePlayer(Integer id){
+        Player player = data.get(id);
+        if(player != null){
+            data.values().removeIf(t -> t.getId().equals(id));
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

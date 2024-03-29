@@ -10,6 +10,8 @@ public interface IRepository<T> {
 
     public Player getPlayer(Integer id);
 
-    public void deletePlayer(Integer id);
+    public boolean updatePlayer(Integer id, Player p);
+
+    public boolean deletePlayer(Integer id);
     
 }
