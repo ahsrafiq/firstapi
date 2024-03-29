@@ -21,4 +21,14 @@ public class PlayerRepo implements IRepository<Player>{
     public Collection<Player> getAll(){
         return data.values();
     }
+
+    @Override
+    public Player getPlayer(Integer id){
+        return data.values().stream().filter(t -> t.getId() == id).findFirst().orElse(null);
+    }
+
+    @Override
+    public void deletePlayer(Integer id){
+        data.values().removeIf(t -> t.getId().equals(id));
+    }
 }
